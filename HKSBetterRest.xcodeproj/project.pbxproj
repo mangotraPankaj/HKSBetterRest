@@ -13,6 +13,7 @@
 		CD1FF5CF267B0DC1008FCA6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1FF5CE267B0DC1008FCA6B /* Assets.xcassets */; };
 		CD1FF5D2267B0DC1008FCA6B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD1FF5D1267B0DC1008FCA6B /* Preview Assets.xcassets */; };
 		CD1FF5D5267B0DC1008FCA6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD1FF5D3267B0DC1008FCA6B /* LaunchScreen.storyboard */; };
+		CD1FF5E0267B19ED008FCA6B /* BetterRest.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CD1FF5DF267B19ED008FCA6B /* BetterRest.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CD1FF5D1267B0DC1008FCA6B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD1FF5D4267B0DC1008FCA6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD1FF5D6267B0DC2008FCA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD1FF5DF267B19ED008FCA6B /* BetterRest.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BetterRest.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		CD1FF5C7267B0DBB008FCA6B /* HKSBetterRest */ = {
 			isa = PBXGroup;
 			children = (
+				CD1FF5E2267B19F6008FCA6B /* ML Model */,
 				CD1FF5C8267B0DBB008FCA6B /* AppDelegate.swift */,
 				CD1FF5CA267B0DBB008FCA6B /* SceneDelegate.swift */,
 				CD1FF5CC267B0DBB008FCA6B /* ContentView.swift */,
@@ -75,6 +78,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		CD1FF5E2267B19F6008FCA6B /* ML Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD1FF5DF267B19ED008FCA6B /* BetterRest.mlmodel */,
+			);
+			path = "ML Model";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,6 +96,7 @@
 				CD1FF5C1267B0DBB008FCA6B /* Sources */,
 				CD1FF5C2267B0DBB008FCA6B /* Frameworks */,
 				CD1FF5C3267B0DBB008FCA6B /* Resources */,
+				CD1FF5DD267B10B3008FCA6B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -140,6 +152,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CD1FF5DD267B10B3008FCA6B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint && swiftlint --fix\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CD1FF5C1267B0DBB008FCA6B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -147,6 +179,7 @@
 			files = (
 				CD1FF5C9267B0DBB008FCA6B /* AppDelegate.swift in Sources */,
 				CD1FF5CB267B0DBB008FCA6B /* SceneDelegate.swift in Sources */,
+				CD1FF5E0267B19ED008FCA6B /* BetterRest.mlmodel in Sources */,
 				CD1FF5CD267B0DBB008FCA6B /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
