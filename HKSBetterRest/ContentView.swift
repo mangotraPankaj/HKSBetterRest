@@ -18,7 +18,7 @@ struct ContentView: View {
     
     @State private var wakeUp = defaultWakeUpTime
     @State private var sleepAmount = 8.0
-    @State private var coffeeAmount = 1
+    @State private var coffeeAmount = 0
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var showingAlert = false
@@ -47,15 +47,17 @@ struct ContentView: View {
                 }
                 Section {
                     Text("Daily Coffee intake").font(.headline)
-                    
-                    Stepper(value: $coffeeAmount, in: 1...20) {
-                        if coffeeAmount == 1 {
-                            Text("1 cup")
-                        } else {
-                            Text("\(coffeeAmount) cups")
+                    Picker("Amount", selection: $coffeeAmount, content: {
+                        ForEach(Array(coffeeAmountArray.enumerated()), id: \.0) { index, _ in
+                            let str = coffeeAmountArray[index] == 1 ? "1 cup" : "\(coffeeAmountArray[index]) cups"
+                            Text("\(str)")
                         }
-                    }
+                    })
                 }
+//                
+//                Section {
+//                    Text(\(calculateBedTime)")
+//                }
             }.navigationBarTitle("Better Rest")
             .navigationBarItems(trailing:
                                     Button(action: calculateBedTime, label: {
@@ -64,8 +66,8 @@ struct ContentView: View {
             .alert(isPresented: $showingAlert) {
                 Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
-            }
         }
+    }
     
     func calculateBedTime() {
         let model = SleepCalculator()
