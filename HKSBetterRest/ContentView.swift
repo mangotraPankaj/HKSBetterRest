@@ -22,11 +22,12 @@ struct ContentView: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var showingAlert = false
+    @State private var coffeeAmountArray = Array(1...20)
     
     var body: some View {
         NavigationView {
             Form {
-                VStack {
+                Section {
                     Text("When do you want to wake up?")
                         .font(.headline)
                     
@@ -36,7 +37,7 @@ struct ContentView: View {
                         .labelsHidden()
                         .datePickerStyle(WheelDatePickerStyle())
                 }
-                VStack {
+                Section {
                     Text("Desired amount of sleep")
                         .font(.headline)
                     
@@ -44,7 +45,7 @@ struct ContentView: View {
                         Text("\(sleepAmount, specifier:"%g") hours")
                     }
                 }
-                VStack {
+                Section {
                     Text("Daily Coffee intake").font(.headline)
                     
                     Stepper(value: $coffeeAmount, in: 1...20) {
@@ -63,7 +64,7 @@ struct ContentView: View {
             .alert(isPresented: $showingAlert) {
                 Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
-            
+            }
         }
     }
     
